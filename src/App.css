@@ -1,0 +1,9 @@
+.App {
+    display: flex;
+    justify-content: flex-start;
+    height: 100vh;
+
+    background: linear-gradient(141deg, #42f0e4 2%, #b3ffb3 23%, #99e6ff 75%);
+    font-family: 'Noticia Text';
+}
+
