@@ -52,7 +52,7 @@ class Cart extends Component {
                         <a onClick={this.empty_cart.bind(this)}><span className="glyphicon glyphicon-trash"></span><p>Clear Cart</p></a>
                     </div>
                 </div>
-                <div className="CartItems">
+                <div className="CartItems" id="style-6">
                     {this.handle_items()}
                 </div>
             </div>
