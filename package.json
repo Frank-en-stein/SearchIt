@@ -2,7 +2,7 @@
   "name": "searchit",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://frank-en-stein.github.io/searchit/build/",
+  "homepage" : "http://localhost/build/",
   "dependencies": {
     "flexbox-react": "^4.4.0",
     "react": "^16.2.0",
