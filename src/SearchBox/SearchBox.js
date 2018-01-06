@@ -3,7 +3,8 @@
  */
 import React, { Component } from 'react';
 import KeyBinding from 'react-keybinding-component';
-import './SearchBox.css'
+import './SearchBox.css';
+import EachItem from './EachItem.js';
 
 
 class SearchBox extends Component {
@@ -17,25 +18,57 @@ class SearchBox extends Component {
             items: []
         };
     }
+    
+    add_to_cart(e) {
+        this.props.update_app_cart(this.state.items[parseInt(e.target.id, 10)]);
+    }
 
     decide() {
-        let whatToReturn = <h2>What'll you buy today?</h2>;
-        if(this.state.searchResultState==='loading') {
-            whatToReturn =
-                <div className="Loading">
-                    <h2><span className="glyphicon glyphicon-refresh"></span></h2>
-                    <h2>Loading...</h2>
+        if(this.state.searchResultState==="init") {
+            return (
+                <div className="NoItemsInSearchBox">
+                    <h2>What'll you buy today?</h2>
                 </div>
+            );
         }
-        else if(this.state.items.length===0 && this.state.searchResultState!=="init") {
-            whatToReturn = <h2>Sorry, that thing doesn't seem to exist. Try anything else?</h2>;
+        else if(this.state.searchResultState==='loading') {
+            return (
+                <div className="NoItemsInSearchBox">
+                    <div className="Loading">
+                        <h2><span className="glyphicon glyphicon-refresh"></span></h2>
+                        <h2>Loading...</h2>
+                    </div>
+                </div>
+            );
         }
-
-        return (
-            <div className="NoItemsInSearchBox">
-                {whatToReturn}
-            </div>
-        );
+        else if(this.state.items.length===0) {
+            return (
+                <div className="NoItemsInSearchBox">
+                    <h2>Sorry, that thing doesn't seem to exist. Try anything else?</h2>;
+                </div>
+            );
+        }
+        else{
+            return (
+                <div className="SearchedItems" id="style-6">
+                    {
+                        this.state.items.map((xItem, index) => {
+                            return (
+                                <EachItem
+                                    key={xItem._id}
+                                    id={xItem._id}
+                                    imgsrc={xItem._source.images[0]}
+                                    price={xItem._source.price}
+                                    title={xItem._source.title}
+                                    add2cart={this.add_to_cart.bind(this)}
+                                    index={index}
+                                />
+                            );
+                        })
+                    }
+                </div>
+            );
+        }
     }
 
     set_query(e) {
@@ -78,27 +111,7 @@ class SearchBox extends Component {
                     </div>
                 </div>
                 <div className="SearchResults">
-                    <div className="SearchedItems">
-                        <div>
-                            <img alt="lala" src="https://images-na.ssl-images-amazon.com/images/I/81V4qL-WfjL._UL900_.jpg"/>
-                        </div>
-                    </div>
-                    <div className="SearchedItems">
-                        <div>
-                            <img alt="lala" src="https://images-na.ssl-images-amazon.com/images/I/81V4qL-WfjL._UL900_.jpg"/>
-                        </div>
-                    </div>
-                    <div className="SearchedItems">
-                        <div>
-                            <img alt="lala" src="https://images-na.ssl-images-amazon.com/images/I/81V4qL-WfjL._UL900_.jpg"/>
-                        </div>
-                    </div>
-                    <div className="SearchedItems">
-                        <div>
-                            <img alt="lala" src="https://images-na.ssl-images-amazon.com/images/I/81V4qL-WfjL._UL900_.jpg"/>
-                        </div>
-                    </div>
-                    
+                    {this.decide()}
                 </div>
             </div>
         );

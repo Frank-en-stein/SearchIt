@@ -52,8 +52,8 @@
 .SearchResults {
     display: flex;
     flex-direction: row;
-    margin-top: 2%;
-    height: 100vh;
+    margin-top: 3vh;
+    height: auto;
     flex-wrap: wrap;
 }
 
@@ -61,6 +61,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 85vh;
     padding-bottom: 10%;
     align-items: center;
     justify-content: space-around;
@@ -94,27 +95,48 @@
 }
 
 .SearchedItems {
-    padding: .5vw;
+    width: 100%;
+    padding: 3.5vh .5vw .5vh .5vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
     font-size: 0;
     display: -ms-flexbox;
     -ms-flex-wrap: wrap;
-    -ms-flex-direction: column;
+    -ms-flex-direction: row;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     display: -webkit-box;
     display: flex;
-}
-
-
-.SearchedItems div {
-    -webkit-box-flex: auto;
-    -ms-flex: auto;
-    flex: auto;
-    width: 200px;
-    margin: .5vw;
-}
-
-.SearchedItems div img {
-    width: 100%;
+    justify-content: space-around;
+    align-content: space-between;
     height: auto;
+    overflow-y: auto;
 }
+
+/**scrollbar style*/
+#style-6::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#style-6::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+#style-6::-webkit-scrollbar-thumb
+{
+    background-color: #F90;
+    background-image: -webkit-linear-gradient(45deg,
+    rgba(255, 255, 255, .2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, .2) 50%,
+    rgba(255, 255, 255, .2) 75%,
+    transparent 75%,
+    transparent)
+}
+/**scrollbar style end*/
+

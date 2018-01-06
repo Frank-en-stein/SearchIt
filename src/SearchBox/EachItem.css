@@ -1,0 +1,65 @@
+.EachItem {
+    width: 200px;
+    margin: .5vw;
+
+    position: relative;
+    text-align: center;
+    border: solid thin;
+}
+
+.EachItem img {
+    width: 100%;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+
+    opacity: 1;
+    display: block;
+    transition: .4s ease;
+    backface-visibility: hidden;
+}
+
+.EachItem h4 {
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+    header div { margin: 0; }
+    header { padding: 0; }
+}
+/***pricetag***/
+.PriceTag {
+    position: absolute !important;
+    display: inline-flex;
+    top: -10px;
+    left: 0px;
+    opacity: .7;
+}
+
+.PriceTag h5 {
+    background-color: black;
+    color: white;
+    font-size: large;
+    text-align: left;
+}
+/**************/
+
+/*****Add to cart**************/
+.AddToCart {
+    transition: .4s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.EachItem:hover .ItemImage {
+    opacity: 0.4;
+}
+
+.EachItem:hover .AddToCart {
+    opacity: 1;
+}
+/******************************/
