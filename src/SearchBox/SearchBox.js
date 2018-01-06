@@ -20,7 +20,10 @@ class SearchBox extends Component {
     }
     
     add_to_cart(e) {
-        this.props.update_app_cart(this.state.items[parseInt(e.target.id, 10)]);
+        var obj = this.state.items[parseInt(e.target.id, 10)];
+        if(typeof obj !== 'undefined') {
+            this.props.update_app_cart(obj);
+        }
     }
 
     decide() {
