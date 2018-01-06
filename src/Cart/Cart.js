@@ -6,10 +6,6 @@ import './Cart.css'
 import EachItem from './EachItem.js';
 
 class Cart extends Component {
-
-    constructor(props) {
-        super(props);
-    }
     
     empty_cart() {
         this.props.empty_callback();
